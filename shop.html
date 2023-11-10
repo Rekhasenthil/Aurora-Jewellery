@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Boxicons -->
+  <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+
+  <!-- Fontawesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <!-- Custom StyleSheet -->
+  <link rel="stylesheet" href="./styles.css" />
+  <title>Aurora Jewellery</title>
+  
+    <style>
+	
+.container{
+    width: 1000px;
+    margin: auto;
+    transition: 0.5s;
+}
+header{
+    display: grid;
+    grid-template-columns: 1fr 50px;
+    margin-top: 50px;
+	text-align: center;
+	color: #f3327c;
+}
+header .shopping{
+    position: relative;
+    text-align: right;
+}
+header .shopping img{
+    width: 30px;
+}
+header .shopping span{
+    background: red;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    position: absolute;
+    top: -5px;
+    left: 80%;
+    padding: 3px 10px;
+}
+.list{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 20px;
+    row-gap: 20px;
+    margin-top: 50px;
+}
+.list .item{
+    text-align: center;
+    background-color: #DCE0E1;
+    padding: 20px;
+    box-shadow: 0 50px 50px #757676;
+    letter-spacing: 1px;
+}
+.list .item img{
+    width: 90%;
+    height: 430px;
+    object-fit: cover;
+}
+.list .item .title{
+    font-weight: 600;
+}
+.list .item .price{
+    margin: 10px;
+}
+.list .item button{
+    background-color: #1C1F25;
+    color: #fff;
+    width: 100%;
+    padding: 10px;
+}
+.card{
+    position: fixed;
+    top:0;
+    left: 100%;
+    width: 500px;
+    background-color: #453E3B;
+    height: 100vh;
+    transition: 0.5s;
+}
+.active .card{
+    left: calc(100% - 500px);
+}
+.active .container{
+   transform: translateX(-200px);
+}
+.card h1{
+    color: #E8BC0E;
+    font-weight: 100;
+    margin: 0;
+    padding: 0 20px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+.card .checkOut{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+}
+.card .checkOut div{
+    background-color: #E8BC0E;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+.card .checkOut div:nth-child(2){
+    background-color: #1C1F25;
+    color: #fff;
+}
+.listCard li{
+    display: grid;
+    grid-template-columns: 100px repeat(3, 1fr);
+    color: #fff;
+    row-gap: 10px;
+}
+.listCard li div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.listCard li img{
+    width: 90%;
+}
+.listCard li button{
+    background-color: #fff5;
+    border: none;
+}
+.listCard .count{
+    margin: 0 10px;
+}
+	
+	</style>
+</head>
+<body class="">
+    
+    <div class="container">
+        <header>
+            <h1>Our Products <br><br>
+			Timeless Masterpiece To Elevate Your Style</h1>
+            <div class="shopping">
+                <img src="sc.svg">
+                <span class="quantity">0</span>
+            </div>
+        </header>
+
+        <div class="list">
+          
+        </div>
+    </div>
+    <div class="card">
+        <h1>Card</h1>
+        <ul class="listCard">
+        </ul>
+        <div class="checkOut">
+            <div class="total">0</div>
+            <div class="closeShopping">
+			<a href="cart.html">payment</a>
+			</div>
+        </div>
+    </div>
+
+    <script >
+	let openShopping = document.querySelector('.shopping');
+let closeShopping = document.querySelector('.closeShopping');
+let list = document.querySelector('.list');
+let listCard = document.querySelector('.listCard');
+let body = document.querySelector('body');
+let total = document.querySelector('.total');
+let quantity = document.querySelector('.quantity');
+
+openShopping.addEventListener('click', ()=>{
+    body.classList.add('active');
+})
+closeShopping.addEventListener('click', ()=>{
+    body.classList.remove('active');
+})
+
+let products = [
+    {
+        id: 1,
+        name: 'Bridal Set',
+        image: src='https://i.pinimg.com/236x/b8/b2/9a/b8b29a76c54ca7b65790a3b9c26f41fe.jpg',
+		price: 9000
+    },
+    {
+        id: 2,
+        name: 'Long Haram',
+        image: src='https://i.pinimg.com/564x/bd/60/ca/bd60cae13a48f135c9960654ece0935b.jpg',
+        price: 4000
+    },
+    {
+        id: 3,
+        name: 'Traditional Neck Set',
+        image: src='https://i.pinimg.com/236x/01/27/02/012702d6a4fcdff2f05499243175b669.jpg',
+        price: 3500
+    },
+    {
+        id: 4,
+        name: 'Designer Neckset with earing',
+        image: src='https://i.pinimg.com/236x/36/8a/80/368a80d8c0547ec5e307c59883005b3c.jpg',
+        price: 6700
+    },
+    {
+        id: 5,
+        name: 'Antique Haram',
+        image: src='https://i.pinimg.com/236x/b3/41/a3/b341a3d0050272c15f1715a1eabf5269.jpg',
+		price: 4000
+    },
+    {
+        id: 6,
+        name: 'Designer Necklace',
+        image: arc='https://i.pinimg.com/236x/ec/32/2e/ec322e6c4a075c52950672b9b65078d4.jpg',
+        price: 4500
+    },
+	{
+        id: 7,
+        name: 'Christmas Countdown Calender',
+        image: src='https://i.pinimg.com/236x/bb/8e/a4/bb8ea4deba2cd64c2e57b7895ee98bb3.jpg',
+		price: 1850
+    },
+	{
+        id: 8,
+        name: 'Long Haram',
+        image: src='https://i.pinimg.com/236x/5c/ec/70/5cec70f6f4aeb81a8b34fce9f9032cb1.jpg',
+		price: 3500
+    },
+	{
+        id: 9,
+        name: 'Desiner Haram',
+        image: src='https://i.pinimg.com/236x/4b/41/6a/4b416a0c316ae612b93ad7054a36b64e.jpg',
+		price: 5500
+    },
+	{
+        id: 10,
+        name: 'Pearl Haram',
+        image: src='https://i.pinimg.com/236x/e3/cb/8d/e3cb8d0610c646408597e1dd11b6b8e9.jpg',
+		price: 3800
+    },
+	{
+        id: 11,
+        name: 'South Indian Victorian Neckset',
+        image: src='https://i.pinimg.com/564x/d0/7f/89/d07f898049993b193a48203e1092e009.jpg',
+		price: 3400
+    },
+	{
+        id: 12,
+        name: 'Multistrand Gold Blended Neckset',
+        image: src='https://i.pinimg.com/564x/71/c9/18/71c918a346cbf6974c83e1ed1708c827.jpg',
+		price: 7000
+    },
+	{
+        id: 13,
+        name: 'Gold Plated Designer Necklace',
+        image: src='https://i.pinimg.com/564x/f2/b8/de/f2b8de20745e67e77de0fe5ec7cf01fd.jpg',
+		price: 3300
+    },
+	{
+        id: 14,
+        name: 'Designer Long Necklace',
+        image: src='https://i.pinimg.com/564x/aa/51/d5/aa51d5db3dfac50fe16f9a92ff14f391.jpg',
+		price: 5600
+    },
+	{
+        id: 15,
+        name: 'Antique Haram',
+        image: src='https://i.pinimg.com/236x/94/a6/ff/94a6ff4bd321664618059b6263f0cb78.jpg',
+		price: 3900
+    },
+	    {
+        id: 16,
+        name: 'Antique pendent set',
+        image: src='https://i.pinimg.com/564x/cf/91/f3/cf91f33b45ab28651539b14f75c09fc0.jpg',
+		price: 5000
+    },
+	    {
+        id: 17,
+        name: 'Antique Set',
+        image: src='https://i.pinimg.com/564x/83/fd/86/83fd8640c854bffd23b86375df3d5110.jpg',
+		price: 4699
+    },
+	    {
+        id: 18,
+        name: 'Long Haram',
+        image: src='https://i.pinimg.com/564x/20/20/49/20204927edab01115a283550720f7b09.jpg',
+		price: 2334
+    },	
+];
+let listCards  = [];
+function initApp(){
+    products.forEach((value, key) =>{
+        let newDiv = document.createElement('div');
+        newDiv.classList.add('item');
+        newDiv.innerHTML = `
+            <img src="${value.image}">
+            <div class="title">${value.name}</div>
+            <div class="price">${value.price.toLocaleString()}</div>
+            <button onclick="addToCard(${key})">Add To Cart</button>`;
+        list.appendChild(newDiv);
+    })
+}
+initApp();
+function addToCard(key){
+    if(listCards[key] == null){
+        // copy product form list to list card
+        listCards[key] = JSON.parse(JSON.stringify(products[key]));
+        listCards[key].quantity = 1;
+    }
+    reloadCard();
+}
+function reloadCard(){
+    listCard.innerHTML = '';
+    let count = 0;
+    let totalPrice = 0;
+    listCards.forEach((value, key)=>{
+        totalPrice = totalPrice + value.price;
+        count = count + value.quantity;
+        if(value != null){
+            let newDiv = document.createElement('li');
+            newDiv.innerHTML = `
+                <div><img src="${value.image}"/></div>
+                <div>${value.name}</div>
+                <div>${value.price.toLocaleString()}</div>
+                <div>
+                    <button onclick="changeQuantity(${key}, ${value.quantity - 1})">-</button>
+                    <div class="count">${value.quantity}</div>
+                    <button onclick="changeQuantity(${key}, ${value.quantity + 1})">+</button>
+                </div>`;
+                listCard.appendChild(newDiv);
+        }
+    })
+    total.innerText = totalPrice.toLocaleString();
+    quantity.innerText = count;
+}
+function changeQuantity(key, quantity){
+    if(quantity == 0){
+        delete listCards[key];
+    }else{
+        listCards[key].quantity = quantity;
+        listCards[key].price = quantity * products[key].price;
+    }
+    reloadCard();
+}</script>
+</body>
+</html>

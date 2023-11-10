@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Boxicons -->
+  <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+
+  <!-- Fontawesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <!-- Custom StyleSheet -->
+  <link rel="stylesheet" href="./styles.css" />
+  <title>Aurora Jewellery</title>
+  <style>
+    :root {
+  --white: #fff;
+  --black: #222;
+  --primary: #f3327c;
+  --grey: #888;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.6rem;
+  color: var(--black);
+  background-color: var(--white);
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  max-width: 114rem;
+  margin: 0 auto;
+}
+
+@media only screen and (max-width: 1200px) {
+  .container {
+    padding: 0 3rem;
+  }
+}
+
+/* PROMO */
+.promo {
+  background-color: var(--primary);
+  text-align: center;
+  color: var(--white);
+  padding: 0.5rem 0;
+}
+
+/* HEADER */
+.hamburger {
+  display: none;
+}
+
+.menu .top {
+  display: none;
+}
+
+/* .header {
+  min-height: 100vh;
+} */
+
+.d-flex {
+  display: flex;
+  align-items: center;
+}
+
+.navigation {
+  height: 7rem;
+  justify-content: space-between;
+}
+
+.logo {
+  outline: 2px solid var(--primary);
+  outline-offset: 0.2rem;
+  padding: 0rem 1.5rem;
+}
+
+.nav-item:not(:last-child) {
+  margin-right: 0.5rem;
+}
+
+.nav-link {
+  padding: 0 1rem;
+  transition: all 300ms ease-in-out;
+}
+
+.nav-item:first-child .nav-link {
+  color: var(--primary);
+}
+
+.nav-link:hover {
+  color: var(--primary);
+}
+
+.nav .icons div {
+  font-size: 2rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: all 300ms ease-in-out;
+}
+
+.nav .icons div:not(:last-child) {
+  margin-right: 0.5rem;
+}
+
+.nav .icons div:hover {
+  color: var(--primary);
+}
+
+.nav .icons div:last-child {
+  position: relative;
+}
+
+.nav .icons div span {
+  position: absolute;
+  top: -0.5rem;
+  right: -1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--white);
+  background-color: var(--primary);
+  height: 2.2rem;
+  width: 2.2rem;
+  border-radius: 50%;
+}
+
+.align-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 768px) {
+  .navigation {
+    padding: 1rem 0;
+  }
+
+  .menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    background-color: var(--white);
+    height: 100%;
+    width: 80%;
+    max-width: 45rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 500ms ease-in-out;
+    z-index: 100;
+  }
+
+  .icons {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+    font-size: 3rem;
+    cursor: pointer;
+  }
+
+  .logo {
+    outline: 2px solid var(--primary);
+    padding: 0rem;
+  }
+
+  .logo h2 {
+    font-size: 1.6rem;
+    font-weight: 400;
+  }
+
+  .menu .top {
+    display: block;
+    position: relative;
+    background-color: var(--primary);
+    width: 100%;
+    height: 6rem;
+    color: var(--white);
+  }
+
+  .top span {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+  .top span i {
+    font-size: 3rem;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    align-items: start;
+    padding: 2rem 0;
+  }
+
+  .nav-item {
+    margin: 0 0 2rem 0;
+  }
+
+  .nav-link {
+    padding: 0.7rem;
+  }
+
+  .menu.show {
+    left: 0;
+  }
+}<style>
+            h1{
+                color: blueviolet;
+            }
+            input:invalid{
+                border: 2px solid red;
+            }
+            #n1,#n2,#n3,#n4{
+                height: 50px;
+                width: 200px;
+            }
+            td{
+                font-size: 22px;
+                text-align:right;
+            }
+            table{
+                text-align: center;
+                margin: 0 auto;
+            }
+            p{
+                color: black;
+            }
+            input[type="submit"]{
+                height: 50px;
+                width: 130px;
+                background-color: #F33A6A;
+                color: black;
+                font-weight: bold;
+                font-size: 22px;
+            }
+            #table{
+                border-spacing: 0 10px;
+                background-color:#E37383;
+                border: 3px solid #FF1493;
+                padding: 3%;
+            }
+            #s1{
+                text-align: center;
+            }
+        
+	 .btn {
+  display: inline-block;
+  border-radius: 5rem;
+  background-color: var(--primary);
+  padding: 1.3rem 5rem;
+  color: var(--white);
+  font-weight: 600;
+  box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.3);
+  margin-top: 4rem;
+}
+
+
+/* Footer */
+.footer {
+  background-color: var(--black);
+  padding: 6rem 1rem;
+  line-height: 3rem;
+  margin-top: 5rem;
+}
+
+.footer-center span {
+  margin-right: 1rem;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  color: var(--white);
+}
+
+.footer-center a:link,
+.footer-center a:visited {
+  display: block;
+  color: var(--grey2);
+  font-size: 1.4rem;
+  transition: 0.6s;
+}
+
+.footer-center a:hover {
+  color: var(--primary);
+}
+
+.footer-center div {
+  font-size: 1.4rem;
+}
+
+.footer-center h3 {
+  font-size: 1.8rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+@media only screen and (max-width: 998px) {
+  .footer-container {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 2rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    row-gap: 2rem;
+  }
+}
+
+</style>
+</head>
+<body>
+  <div class="promo">
+    <h1><span>All My Jewellery Has Stories</span></h1>
+  </div>
+  <!-- HEADER -->
+  <header class="header">
+    <!-- NAVIGATION -->
+    <nav class="nav container">
+      <div class="navigation d-flex">
+        <div class="hamburger">
+          <i class="bx bx-menu"></i>
+        </div>
+        <div class="logo">
+          <h1>AURORA JEWELS</h1>
+        </div>
+
+        <div class="menu">
+          <div class="top">
+            <span class="close">close <i class="bx bx-x"></i></span>
+          </div>
+
+          <ul class="nav-list d-flex">
+            <li class="nav-item">
+              <a href="#Home" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="about.html" class="nav-link">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="products.html" class="nav-link">Products</a>
+            </li>
+            <li class="nav-item">
+              <a href="#contact" class="nav-link">Contact</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="icons d-flex">
+          <div><i class="bx bx-search"></i></div>
+          <div><i class="bx bx-user"></i></div>
+          <div><i class="bx bx-heart"></i></div>
+          <div>
+            <i class="bx bx-shopping-bag"></i>
+            <span class="align-center">5</span>
+          </div>
+        </div>
+      </div>
+    </nav>
+</header>
+ 
+  <section id="contact">
+  <div class="title">
+      <h1>Contact<span> Us</span></h1>
+   </div>
+   <body align="center">
+        
+        <form id="f1">
+            <table id="table">
+                <tr>
+                    <td> Name:  </td>
+                    <td> 
+                    <input type="text" id="n1" pattern="^[a-zA-Z0-9]{5,12}" required />
+                    </td>
+                    <td><p id="demo"></p></td>
+                </tr>
+                <tr>
+                    <td> Email: </td>
+                    <td> 
+                    <input type="password" id="n2" pattern="^[a-zA-Z0-9@]{7,12}" required />
+                    </td>
+                    <td><p id="demo1"></p></td>
+                </tr>
+                <tr>
+                    <td>Mobile Number: </td>
+                    <td> 
+                    <input type="text" id="n3" pattern="^[0-9]{110}" required />
+                    </td>
+                    <td><p id="demo2"></p></td>
+                </tr>
+                <tr>
+                    <td>Address: </td>
+                    <td> 
+                    <input type="text" id="n4" pattern="^[a-zA-Z0-9 _]{5,30}" required />
+                    </td>
+                    <td><p id="demo3"></p></td>
+                </tr>
+                <br><br>
+				<tr>
+                    <td>Queries: </td>
+                    <td> 
+                    <input type="text" id="n4" pattern="^[a-zA-Z0-9 _]{5,30}" required />
+                    </td>
+                    <td><p id="demo3"></p></td>
+                </tr>
+                <br><br>
+                
+                <tr>
+                    <td></td>
+                    <td id="s1"> <input type="submit"  value="submit" onclick="checkform()" > </input></td>
+                </tr>
+            </table>
+        </form>
+  </section>
+  <!-- Footer -->
+  <footer id="footer" class="section footer">
+    <div class="container">
+      <div class="footer-container">
+        <div class="footer-center">
+          <h3>EXTRAS</h3>
+          <a href="#">Brands</a>
+          <a href="#">Gift Certificates</a>
+          <a href="#">Affiliate</a>
+          <a href="#">Specials</a>
+          <a href="#">Site Map</a>
+        </div>
+        <div class="footer-center">
+          <h3>INFORMATION</h3>
+          <a href="#">About Us</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Contact Us</a>
+          <a href="#">Site Map</a>
+        </div>
+        <div class="footer-center">
+          <h3>MY ACCOUNT</h3>
+          <a href="#">My Account</a>
+          <a href="#">Order History</a>
+          <a href="#">Wish List</a>
+          <a href="#">blogletter</a>
+          <a href="#">Returns</a>
+        </div>
+        <div class="footer-center">
+          <h3>CONTACT US</h3>
+          <div>
+            <span>
+              <i class="fas fa-map-marker-alt"></i>
+            </span>
+            42 Dream House, Dreammy street, 7131 Dreamville, INDIA
+          </div>
+          <div>
+            <span>
+              <i class="far fa-envelope"></i>
+            </span>
+            company@gmail.com
+          </div>
+          <div>
+            <span>
+              <i class="fas fa-phone"></i>
+            </span>
+            456-456-4512
+          </div>
+          <div>
+            <span>
+              <i class="far fa-paper-plane"></i>
+            </span>
+            Dream City, INDIA
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </footer>
+  <!-- Script -->
+  <script>
+            function checkform(){
+                
+                var id=document.getElementById('n1');
+                if (id.validity.valueMissing){
+                     document.getElementById('demo').innerHTML="please enter your name"
+                }
+                else if(id.validity.patternMismatch){
+                    document.getElementById('demo').innerHTML="error! Id accepts alphanumeric char between 5 to 12";
+                }
+                else{
+                    document.getElementById("demo").innerHTML="";
+                 }
+
+                var id1=document.getElementById('n2');
+                if (id1.validity.valueMissing){
+                     document.getElementById('demo1').innerHTML="Enter your Mail Id"
+                }
+                else if(id1.validity.patternMismatch){
+                     document.getElementById('demo1').innerHTML="error! Password accepts alphabhets,digits, Special character: ._*$& char between 7 to 12";
+                 }
+                else{
+                    document.getElementById("demo1").innerHTML="";
+                }
+
+                var id2=document.getElementById('n3');
+                    if (id2.validity.valueMissing){
+                         document.getElementById('demo2').innerHTML="Enter your Mobile Number"
+                }
+                    else if(id2.validity.patternMismatch){
+                        document.getElementById('demo2').innerHTML="Alphabets character from 3 to 20";
+                }
+                    else{
+                        document.getElementById("demo2").innerHTML="";
+                }
+
+                var id3=document.getElementById('n4');
+                if (id3.validity.valueMissing){
+                    document.getElementById('demo3').innerHTML="Enter your address"
+                }
+                else if(id3.validity.patternMismatch){
+                    document.getElementById('demo3').innerHTML="Numbers,aplhabets,spaces are allowed from 5 to 30 characters";
+                }
+                else{
+                     document.getElementById("demo3").innerHTML="";
+                }
+
+                if (id.checkValidity() && id1.checkValidity() && id2.checkValidity() && id3.checkValidity()) {
+                    alert("Form submitted successfully!");
+                }
+    }
+        </script>
+
+  </body>
+
+</html>
+
+
+
